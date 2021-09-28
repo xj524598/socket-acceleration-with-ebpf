@@ -39,8 +39,7 @@ void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
         printk("sock_hash_update() failed, ret: %d\n", ret);
     }
 
-    printk("sockmap: op %d, port %d --> %d\n",
-            skops->op, skops->local_port, bpf_ntohl(skops->remote_port));
+
 }
 
 __section("sockops")
