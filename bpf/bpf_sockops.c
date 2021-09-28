@@ -25,6 +25,10 @@ void extract_key4_from_ops(struct bpf_sock_ops *ops, struct sock_key *key)
 static inline
 void bpf_sock_ops_ipv4(struct bpf_sock_ops *skops)
 {
+
+    if(skops->local_port!=8000 && bpf_ntohl(skops->remote_port)!=8000){
+        return;
+    }
     struct sock_key key = {};
     int ret;
 
